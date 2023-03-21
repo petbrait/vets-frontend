@@ -1,4 +1,4 @@
-# Petbrait Template
+# Petbrait - Vets site
 
 ## Development quickstart
 
