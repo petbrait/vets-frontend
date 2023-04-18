@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { getPatients } from "@/core/api";
+import { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import PatientCard from "./PatientCard";
-import { UsePatients } from "@/core/api";
 
 const Title = styled(Typography)`
   font-size: 24px !important;
@@ -37,20 +39,19 @@ interface Patient {
 }
 
 const Index = () => {
-  const {
-    patients,
-    isLoading,
-    isError,
-  }: { patients: Array<Patient>; isLoading: boolean; isError: boolean } =
-    UsePatients();
+  const patients = useSelector((state: any) => state.patients);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("patients", patients);
+    !patients.length && getPatients(dispatch);
+  }, []);
 
   return (
     <Box mt={5}>
       <Title>Mascotas</Title>
-      {isLoading ? (
-        <p>Cargando...</p>
-      ) : (
-        <Box>
+      <Box>
+        <>
           <HeaderInfo>
             <div />
             <div>
@@ -64,9 +65,10 @@ const Index = () => {
             </div>
             <div />
           </HeaderInfo>
-          {patients && patients.map((patient) => <PatientCard {...patient} />)}
-        </Box>
-      )}
+          {patients &&
+            patients.map((patient: Patient) => <PatientCard {...patient} />)}
+        </>
+      </Box>
     </Box>
   );
 };

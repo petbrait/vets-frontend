@@ -14,6 +14,8 @@ const WrapperTab = styled(Box)`
 `;
 
 const ContentTab = styled(Box)`
+  max-height: calc(100vh - 275px);
+  overflow: scroll;
   margin-top: 20px;
   background-color: #fff;
   padding: 20px;

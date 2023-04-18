@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -30,6 +31,10 @@ const Back = styled.button`
 
 const Index = () => {
   const router = useRouter();
+
+  const patients = useSelector((state: any) => state.patients);
+
+  console.log("patients", patients);
 
   return (
     <Wrapper>

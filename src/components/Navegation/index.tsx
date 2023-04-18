@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Box from "@mui/material/Box";
 import Patients from "@/components/Patients";
+import Calendar from "@/components/Calendar";
 
 const List = styled.ul`
   padding: 0;
@@ -34,25 +35,33 @@ const Item = styled.li<itemProps>`
 `;
 
 const Index = () => {
-  const [renderTab, setRenderTab] = useState(0);
+  const [renderTab, setRenderTab] = useState(1);
 
   return (
     <Box mt={5}>
       <List>
         <Item
-          onClick={() => setRenderTab(0)}
-          active={renderTab === 0 ? true : false}
+          onClick={() => setRenderTab(1)}
+          active={renderTab === 1 ? true : false}
         >
           Mascotas
         </Item>
         <Item
-          onClick={() => setRenderTab(1)}
-          active={renderTab === 1 ? true : false}
+          onClick={() => setRenderTab(2)}
+          active={renderTab === 2 ? true : false}
+        >
+          Doctores
+        </Item>
+        <Item
+          onClick={() => setRenderTab(3)}
+          active={renderTab === 3 ? true : false}
         >
           Calendario
         </Item>
       </List>
-      {renderTab === 0 && <Patients />}
+      {renderTab === 1 && <Patients />}
+      {/* {renderTab === 2 && <Patients />} */}
+      {renderTab === 3 && <Calendar />}
     </Box>
   );
 };

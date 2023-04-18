@@ -74,13 +74,13 @@ const Index = ({
   const router = useRouter();
 
   return (
-    <Card>
+    <Card key={id}>
       <Content onClick={() => router.push(`/pet/${id}`)}>
         <div>
           <Stack direction="row" spacing={2} alignItems="center">
             <Avatar
               alt="ncieone"
-              src="../../assets/images/logo-petco.png"
+              src="https://images.hola.com/imagenes/mascotas/20221020219416/razas-perros-toy/1-154-385/razas-de-perro-toy-t.jpg"
               sx={{
                 width: 50,
                 height: 50,

@@ -36,7 +36,7 @@ const PetName = styled(Typography)`
 const Index = () => {
   return (
     <Wrapper>
-      <Date>10:30px</Date>
+      <Date>10:30pm</Date>
       <Card>
         <Title>Revision general</Title>
         <Grid container alignItems="flex-end" mt={1}>
@@ -44,7 +44,7 @@ const Index = () => {
             <Stack direction="row" spacing={2} alignItems="center">
               <Avatar
                 alt="ncieone"
-                src="../../assets/images/logo-petco.png"
+                src="https://images.hola.com/imagenes/mascotas/20221020219416/razas-perros-toy/1-154-385/razas-de-perro-toy-t.jpg"
                 sx={{
                   width: 40,
                   height: 40,

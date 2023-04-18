@@ -29,7 +29,8 @@ const Index = () => {
       <Box>
         <Avatar
           alt="L"
-          src="../../assets/images/logo-petco.png"
+          // src="https://definicion.de/wp-content/uploads/2013/03/perro-1.jpg"
+          src="https://images.hola.com/imagenes/mascotas/20221020219416/razas-perros-toy/1-154-385/razas-de-perro-toy-t.jpg"
           sx={{
             width: 55,
             height: 55,

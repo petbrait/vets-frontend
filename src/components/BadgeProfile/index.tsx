@@ -7,6 +7,7 @@ import Image from "next/image";
 import Tooltip from "@mui/material/Tooltip";
 import IconPlus from "@/assets/icons/plus.svg";
 import Modal from "@mui/material/Modal";
+import Finder from "@/components/Finder";
 
 const style = {
   position: "absolute" as "absolute",
@@ -43,7 +44,7 @@ const Index = () => {
         </Tooltip>
         <Avatar
           alt="ncieone"
-          src="../../assets/images/logo-petco.png"
+          src="https://micarrerauniversitaria.com/wp-content/uploads/2018/03/veterinario-1.gif"
           sx={{ width: 50, height: 50, bgcolor: "#AA77FF", color: "#fff" }}
         />
       </Stack>
@@ -53,7 +54,9 @@ const Index = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}></Box>
+        <Box sx={style}>
+          <Finder />
+        </Box>
       </Modal>
     </Box>
   );

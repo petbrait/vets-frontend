@@ -21,5 +21,3 @@ Some additional commands that are frequently used in development are:
 ## Maintainers
 
 @jaredortega
-
-## External documentation
