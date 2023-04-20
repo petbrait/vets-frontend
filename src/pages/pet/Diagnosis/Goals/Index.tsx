@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import GoalCard from "./GoalCard";
+import AddGoal from "./AddGoal";
 import { colors } from "@/constants/colors";
 
 const Title = styled(Typography)`
-  font-size: 15px !important;
-  font-weight: 600 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
 `;
 
 interface filterProps {
@@ -21,6 +21,7 @@ const Filters = styled(Box)`
   top: -20px;
   padding: 20px 0;
   background-color: #fff;
+  z-index: 1;
 `;
 
 const Filter = styled(Typography)<filterProps>`
@@ -42,7 +43,7 @@ const Index = () => {
             <Title>7 Metas</Title>
           </Grid>
           <Grid item xs={1.7}>
-            <Button size="small">+ Agregar meta</Button>
+            <AddGoal />
           </Grid>
         </Grid>
         <Filters>

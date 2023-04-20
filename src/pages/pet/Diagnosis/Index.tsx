@@ -11,8 +11,8 @@ const Index = () => {
   return (
     <div>
       {/* Goals */}
-      <Box mb={2}>
-        <Accordion>
+      <Box>
+        {/* <Accordion>
           <AccordionSummary
             expandIcon={
               <Image
@@ -26,14 +26,14 @@ const Index = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>Metas</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Goals />
           </AccordionDetails>
-        </Accordion>
+        </Accordion> */}
+        {/* <Typography>Metas</Typography> */}
+        <Goals />
       </Box>
-      {/* Nutrition */}
+      {/* Nutrition
       <Accordion>
         <AccordionSummary
           expandIcon={
@@ -56,7 +56,7 @@ const Index = () => {
             malesuada lacus ex, sit amet blandit leo lobortis eget.
           </Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </div>
   );
 };

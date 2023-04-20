@@ -18,7 +18,7 @@ const ContentTab = styled(Box)`
   overflow: scroll;
   margin-top: 20px;
   background-color: #fff;
-  padding: 20px;
+  padding: 20px 20px 0;
   border-radius: 10px;
 `;
 
@@ -36,7 +36,7 @@ const Index = () => {
   const tabs = [
     {
       index: 1,
-      label: "Diagnostico",
+      label: "Metas",
     },
     {
       index: 2,

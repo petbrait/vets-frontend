@@ -1,16 +1,17 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
+import { PetName, Race } from "@/styles";
+import ButtonBookAppoinment from "@/components/ButtonBookAppoinment";
+import { type Patient } from "@/types";
 
 const Card = styled(Box)`
   background-color: #fff;
   margin-bottom: 20px;
   padding: 15px 10px 15px 30px;
-  cursor: pointer;
   & div {
     & img {
       width: 44px;
@@ -40,28 +41,9 @@ const Content = styled(Box)`
   justify-items: flex-start;
 `;
 
-const PetName = styled(Typography)`
-  font-size: 16px;
-  font-weight: 500;
-`;
-
-const Race = styled(Typography)`
-  color: #727f88;
-  font-size: 11px !important;
-`;
-
 const Item = styled(Typography)`
   font-size: 13px !important;
 `;
-
-interface Patient {
-  id: number;
-  name: string;
-  race: string;
-  owner_name: string;
-  owner_phone: string;
-  total_sessions: number;
-}
 
 const Index = ({
   id,
@@ -75,8 +57,11 @@ const Index = ({
 
   return (
     <Card key={id}>
-      <Content onClick={() => router.push(`/pet/${id}`)}>
-        <div>
+      <Content>
+        <div
+          onClick={() => router.push(`/pet/${id}`)}
+          style={{ cursor: "pointer" }}
+        >
           <Stack direction="row" spacing={2} alignItems="center">
             <Avatar
               alt="ncieone"
@@ -104,12 +89,7 @@ const Index = ({
           <Item>{total_sessions}</Item>
         </div>
         <div>
-          <Button
-            onClick={() => console.log("Sheesh")}
-            sx={{ position: "relative", zIndex: 5 }}
-          >
-            Agendar Cita
-          </Button>
+          <ButtonBookAppoinment />
         </div>
       </Content>
     </Card>

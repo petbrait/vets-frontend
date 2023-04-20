@@ -1,6 +1,5 @@
+import useSWR from "swr";
 import { AppConfig } from "@/utils/AppConfig";
-import { setPatients } from "@/actions";
-import axios from "axios";
 
 // @ts-ignore
 const fetcher = (...args) =>
@@ -12,14 +11,16 @@ const fetcher = (...args) =>
 
 const PATIENTS_URL = `${AppConfig.apiUrl}/get_patients`;
 
-export function getPatients(dispatch: any) {
-  console.log("Runn..");
-  axios(PATIENTS_URL)
-    .then(({ data }) => {
-      dispatch(setPatients(data));
-      console.log("res", data);
-    })
-    .catch((error) => {
-      console.log("error", error);
-    });
+export function UsePatients() {
+  const { data, error, isLoading } = useSWR(PATIENTS_URL, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
+
+  return {
+    patients: data,
+    isLoading,
+    isError: error,
+  };
 }

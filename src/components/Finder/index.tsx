@@ -1,9 +1,14 @@
+import { useState } from "react";
+import { useFinder } from "@/hooks/useFinder";
 import styled from "styled-components";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import PetCardFinder from "./PetCardFinder";
+import { UsePatients } from "@/core/api";
+import { type Patient } from "@/types";
 
 const Input = styled(TextField)(({}) => ({
   "& .MuiInputBase-input": {
@@ -18,6 +23,16 @@ const Title = styled(Typography)`
 `;
 
 const Index = () => {
+  const {
+    patients,
+    isLoading,
+    isError,
+  }: { patients: Array<Patient>; isLoading: boolean; isError: boolean } =
+    UsePatients();
+
+  const [filterName, setFilterName] = useState<string | null>(null);
+  const filteredData = useFinder(filterName, patients);
+
   return (
     <Box>
       <Stack
@@ -35,7 +50,13 @@ const Index = () => {
           sx={{ fontFamily: "Poppins" }}
           fullWidth={true}
           placeholder="Escribe un nombre"
+          onChange={(e) => setFilterName(e.target.value)}
         />
+      </Box>
+      <Box mt={4}>
+        {filteredData &&
+          // @ts-ignore
+          filteredData.map((patient) => <PetCardFinder patient={patient} />)}
       </Box>
     </Box>
   );

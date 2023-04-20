@@ -37,7 +37,7 @@ const Index = () => {
   return (
     <Box>
       <Stack direction="row" spacing={2}>
-        <Tooltip title="Agregar mascota">
+        <Tooltip title="Asignarme una mascota">
           <ButtonAddPet onClick={handleOpen}>
             <Image priority src={IconPlus} alt="icon-plus" />
           </ButtonAddPet>

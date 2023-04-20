@@ -46,12 +46,12 @@ const Index = () => {
         >
           Mascotas
         </Item>
-        <Item
+        {/* <Item
           onClick={() => setRenderTab(2)}
           active={renderTab === 2 ? true : false}
         >
           Doctores
-        </Item>
+        </Item> */}
         <Item
           onClick={() => setRenderTab(3)}
           active={renderTab === 3 ? true : false}

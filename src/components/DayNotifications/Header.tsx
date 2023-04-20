@@ -46,7 +46,7 @@ const ActiveTab = styled.div<ActiveTabProps>`
       css`
         left: 100px;
       `)}
-  background-color: #cac9f3;
+  background-color: #4649ff30;
   width: 45px;
   height: 45px;
   border-radius: 50px;

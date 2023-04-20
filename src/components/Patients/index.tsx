@@ -1,10 +1,12 @@
+import { useState } from "react";
+import { useFinder } from "@/hooks/useFinder";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
-import { getPatients } from "@/core/api";
-import { useEffect } from "react";
 import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import PatientCard from "./PatientCard";
+import { UsePatients } from "@/core/api";
+import { type Patient } from "@/types";
 
 const Title = styled(Typography)`
   font-size: 24px !important;
@@ -29,46 +31,67 @@ const HeaderInfo = styled(Box)`
   }
 `;
 
-interface Patient {
-  id: number;
-  name: string;
-  race: string;
-  owner_name: string;
-  owner_phone: string;
-  total_sessions: number;
-}
+const Input = styled(TextField)(({}) => ({
+  "& .MuiInputBase-input": {
+    fontSize: "13px",
+    padding: "13.5px 14px",
+  },
+}));
 
 const Index = () => {
-  const patients = useSelector((state: any) => state.patients);
-  const dispatch = useDispatch();
+  const {
+    patients,
+    isLoading,
+    isError,
+  }: { patients: Array<Patient>; isLoading: boolean; isError: boolean } =
+    UsePatients();
 
-  useEffect(() => {
-    console.log("patients", patients);
-    !patients.length && getPatients(dispatch);
-  }, []);
+  const [filterName, setFilterName] = useState<string | null>(null);
+  const filteredData = useFinder(filterName, patients);
 
   return (
     <Box mt={5}>
       <Title>Mascotas</Title>
-      <Box>
-        <>
-          <HeaderInfo>
-            <div />
-            <div>
-              <p>Dueño</p>
-            </div>
-            <div>
-              <p>Contacto</p>
-            </div>
-            <div>
-              <p>Total sesiones</p>
-            </div>
-            <div />
-          </HeaderInfo>
-          {patients &&
-            patients.map((patient: Patient) => <PatientCard {...patient} />)}
-        </>
+      <Box mt={3} mb={3}>
+        <Input
+          variant="outlined"
+          sx={{
+            fontFamily: "Poppins",
+            backgroundColor: "#fff",
+          }}
+          fullWidth={true}
+          placeholder="Buscar mascota"
+          onChange={(e) => setFilterName(e.target.value)}
+        />
       </Box>
+      {isLoading ? (
+        <p>Cargando...</p>
+      ) : (
+        <Box>
+          {isError ? (
+            <p>Error was ocurred</p>
+          ) : (
+            <>
+              <HeaderInfo>
+                <div />
+                <div>
+                  <p>Dueño</p>
+                </div>
+                <div>
+                  <p>Contacto</p>
+                </div>
+                <div>
+                  <p>Total sesiones</p>
+                </div>
+                <div />
+              </HeaderInfo>
+              {filteredData &&
+                // @ts-ignore
+                filteredData.map((patient) => <PatientCard {...patient} />)}
+            </>
+          )}
+        </Box>
+      )}
     </Box>
   );
 };

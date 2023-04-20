@@ -17,9 +17,9 @@ const Wrapper = styled(Box)`
 
 const Content = styled(Box)`
   width: 25%;
-  border: 1px solid #cbcbcb;
   border-radius: 10px;
   padding: 40px;
+  background-color: #fafafa;
 `;
 
 const Index = () => {
