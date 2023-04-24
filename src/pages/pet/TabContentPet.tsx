@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Diagnosis from "./Diagnosis/Index";
-import Notes from "./Notes/Index";
+import Diagnosis from "./Diagnosis";
+import Files from "./Files";
+import Vaccines from "./Vaccines";
 import Bookings from "./Bookings/Index";
 
 const WrapperTab = styled(Box)`
@@ -39,15 +40,15 @@ const Index = () => {
       label: "Diagnosticos",
     },
     {
-      index: 1,
+      index: 2,
       label: "Vacunas",
     },
     {
-      index: 2,
+      index: 3,
       label: "Archivos",
     },
     {
-      index: 3,
+      index: 4,
       label: "Citas",
     },
   ];
@@ -70,8 +71,9 @@ const Index = () => {
       </WrapperTab>
       <ContentTab>
         {tab === 1 && <Diagnosis />}
-        {tab === 2 && <Notes />}
-        {tab === 3 && <Bookings />}
+        {tab === 2 && <Vaccines />}
+        {tab === 3 && <Files />}
+        {tab === 4 && <Bookings />}
       </ContentTab>
     </Box>
   );

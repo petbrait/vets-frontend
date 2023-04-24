@@ -2,11 +2,13 @@ import styled from "styled-components";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Image from "next/image";
 import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 import IconArrow from "@/assets/icons/chevron.svg";
 import IconFileText from "@/assets/icons/file-text.svg";
 import IconShare from "@/assets/icons/share.svg";
@@ -20,13 +22,18 @@ const Card = styled(Accordion)`
 const Section = styled(Box)`
   margin-bottom: 20px;
   & h3 {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     margin-bottom: 5px;
   }
   & p {
     font-size: 12.5px;
   }
+`;
+
+const Date = styled(Typography)`
+  font-size: 12px !important;
+  color: grey;
 `;
 
 const Index = () => {
@@ -47,23 +54,23 @@ const Index = () => {
           id="panel1a-header"
           sx={{ padding: "0 20px !important" }}
         >
-          <Stack direction="column" spacing={0}>
-            <p>
-              <Image
-                width={20}
-                height={20}
-                priority
-                src={IconFileText}
-                alt="icon-filetext"
-              />
-              Diagnostico 1
-            </p>
-            <small>23 de Abril 2023</small>
+          <Stack direction="row" spacing={2} alignItems="center">
+            <Image
+              width={18}
+              height={18}
+              priority
+              src={IconFileText}
+              alt="icon-filetext"
+            />
+            <Box>
+              <p>Diagnostico 1</p>
+              <Date>23 de Abril 2023</Date>
+            </Box>
           </Stack>
         </AccordionSummary>
         <AccordionDetails>
-          <Grid container spacing={10}>
-            <Grid item xs={10}>
+          <Grid container spacing={5.5}>
+            <Grid item xs={11}>
               <Section>
                 <h3>Detalles del problema</h3>
                 <p>
@@ -96,17 +103,19 @@ const Index = () => {
                 <p>Ninguno</p>
               </Section>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={1}>
               <Stack direction="row" spacing={1} alignItems="center">
-                <IconButton>
-                  <Image
-                    width={16}
-                    height={16}
-                    priority
-                    src={IconShare}
-                    alt="icon-share"
-                  />
-                </IconButton>
+                <Tooltip title="Compartir">
+                  <IconButton>
+                    <Image
+                      width={17}
+                      height={17}
+                      priority
+                      src={IconShare}
+                      alt="icon-share"
+                    />
+                  </IconButton>
+                </Tooltip>
               </Stack>
             </Grid>
           </Grid>

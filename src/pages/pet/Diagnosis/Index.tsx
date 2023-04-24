@@ -18,7 +18,7 @@ const Index = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Title>Diagnosticos (10)</Title>
+        <Title>Diagnosticos (3)</Title>
       </Stack>
       <Box mt={3} mb={2}>
         {[1, 2, 3].map(() => (

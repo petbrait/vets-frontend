@@ -5,15 +5,15 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import PetInfo from "./PetInfo";
-import OwnerInfo from "./OwnerInfo";
 import TabContentPet from "./TabContentPet";
 import Image from "next/image";
 import IconArrow from "@/assets/icons/arrow.svg";
 import Logo from "@/components/Logo";
+import InfoTab from "./InfoTab";
 
 const Wrapper = styled(Box)`
   background-color: #f7f6fe;
-  height: calc(100vh - 80px);
+  /* height: calc(100vh - 80px); */
   padding: 40px;
 `;
 
@@ -61,7 +61,9 @@ const Index = () => {
           <Box mb={3}>
             <PetInfo />
           </Box>
-          <OwnerInfo />
+          <Box>
+            <InfoTab />
+          </Box>
         </Grid>
         <Grid item xs={8.5}>
           <TabContentPet />

@@ -51,7 +51,7 @@ const Index = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Title>2 Sessiones</Title>
+        <Title>2 Sesiones</Title>
         <Box>
           <AddBooking type="booking">+ Reservar una sesión </AddBooking>
         </Box>
