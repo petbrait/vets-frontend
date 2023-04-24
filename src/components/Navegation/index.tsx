@@ -53,17 +53,17 @@ const Index = () => {
         >
           Solicitudes
         </Item>
-        <Item
+        {/* <Item
           onClick={() => setRenderTab(3)}
           active={renderTab === 3 ? true : false}
         >
           Calendario
-        </Item>
+        </Item> */}
       </List>
       <hr />
       {renderTab === 1 && <Patients />}
       {renderTab === 2 && <PetRequest />}
-      {renderTab === 3 && <Calendar />}
+      {/* {renderTab === 3 && <Calendar />} */}
     </Box>
   );
 };
