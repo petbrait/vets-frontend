@@ -14,7 +14,7 @@ const WrapperTab = styled(Box)`
 `;
 
 const ContentTab = styled(Box)`
-  max-height: calc(100vh - 275px);
+  max-height: calc(100vh - 253px);
   overflow: scroll;
   margin-top: 20px;
   background-color: #fff;
@@ -36,18 +36,18 @@ const Index = () => {
   const tabs = [
     {
       index: 1,
-      label: "Metas",
+      label: "Diagnosticos",
+    },
+    {
+      index: 1,
+      label: "Vacunas",
     },
     {
       index: 2,
-      label: "Medicamentos",
+      label: "Archivos",
     },
     {
       index: 3,
-      label: "Notas",
-    },
-    {
-      index: 4,
       label: "Citas",
     },
   ];
@@ -70,8 +70,8 @@ const Index = () => {
       </WrapperTab>
       <ContentTab>
         {tab === 1 && <Diagnosis />}
-        {tab === 3 && <Notes />}
-        {tab === 4 && <Bookings />}
+        {tab === 2 && <Notes />}
+        {tab === 3 && <Bookings />}
       </ContentTab>
     </Box>
   );

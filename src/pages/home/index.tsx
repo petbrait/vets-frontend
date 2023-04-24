@@ -8,7 +8,7 @@ import DayNotifications from "@/components/DayNotifications";
 
 const Wrapper = styled(Box)`
   background-color: #f7f6fe;
-  height: 100vh;
+  height: calc(100vh - 80px);
   padding: 40px;
 `;
 

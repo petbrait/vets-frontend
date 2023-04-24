@@ -77,7 +77,7 @@ const Index = () => {
                   variant="contained"
                   fullWidth={true}
                 >
-                  <span>Entrar</span>
+                  <span>Entrar 👉🏻</span>
                 </LoadingButton>
               </form>
             </Box>

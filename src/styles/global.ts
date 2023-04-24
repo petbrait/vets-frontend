@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { colors } from "../constants/colors";
+import { COLORS } from "../constants/colors";
 import "react-calendar/dist/Calendar.css";
 
 export default createGlobalStyle`
@@ -16,7 +16,7 @@ export default createGlobalStyle`
     h4,
     p,
     a,
-    button, li, a, span {
+    button, li, a, span, small {
     margin: 0;
     font-family: "Poppins";
     }
@@ -55,9 +55,8 @@ export default createGlobalStyle`
 .react-calendar button {
   padding: 12px !important;
   margin: 3px !important;
-  border: 2px solid ${colors.mistyDay};
-  color: ${colors.navy};
-  /* background: ${colors.lavender}; */
+  border: 2px solid ${COLORS.mistyDay};
+  color: ${COLORS.navy};
   @media screen and (max-width: 767px) {
     padding: 12px !important;
   }
@@ -148,19 +147,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 .react-calendar__tile:enabled:hover {
-  background-color: ${colors.white};
+  background-color: ${COLORS.white};
 }
 .react-calendar__tile .selected {
-  background-color: ${colors.brightBlue};
+  background-color: ${COLORS.brightBlue};
 }
 
 react-calendar__tile--active {
-  background-color: ${colors.brightBlue};
+  background-color: ${COLORS.brightBlue};
   color: white;
   font-weight: 600;
 }
 .react-calendar__month-view__days__day--weekend {
-  color: ${colors.black};
+  color: ${COLORS.black};
 }
 .react-calendar__tile:disabled {
   background-color: transparent;
@@ -189,7 +188,7 @@ react-calendar__tile--active {
   font-family: "Montserrat";
 }
 .react-calendar__tile--active {
-  background: ${colors.brightBlue} !important;
+  background: ${COLORS.brightBlue} !important;
   color: white !important;
 }
 .react-date-picker__clear-button {

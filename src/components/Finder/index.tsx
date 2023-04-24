@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import PetCardFinder from "./PetCardFinder";
+import PetToAssigned from "./PetToAssigned";
 import { UsePatients } from "@/core/api";
 import { type Patient } from "@/types";
 
@@ -33,31 +34,51 @@ const Index = () => {
   const [filterName, setFilterName] = useState<string | null>(null);
   const filteredData = useFinder(filterName, patients);
 
+  const [patientSelected, setPatientSelected] = useState<Patient | null>();
+
   return (
     <Box>
-      <Stack
-        direction="row"
-        spacing={2}
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Title>Buscar mascota</Title>
-        <Button size="small">+ Registrar mascota</Button>
-      </Stack>
-      <Box mt={3}>
-        <Input
-          variant="outlined"
-          sx={{ fontFamily: "Poppins" }}
-          fullWidth={true}
-          placeholder="Escribe un nombre"
-          onChange={(e) => setFilterName(e.target.value)}
+      {patientSelected ? (
+        <PetToAssigned
+          patient={patientSelected}
+          setPatientSelected={setPatientSelected}
         />
-      </Box>
-      <Box mt={4}>
-        {filteredData &&
-          // @ts-ignore
-          filteredData.map((patient) => <PetCardFinder patient={patient} />)}
-      </Box>
+      ) : (
+        <>
+          <Stack
+            direction="row"
+            spacing={2}
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Title>Buscar mascota</Title>
+            <Button size="small">+ Registrar mascota</Button>
+          </Stack>
+          <Box mt={3}>
+            <Input
+              variant="outlined"
+              sx={{ fontFamily: "Poppins" }}
+              fullWidth={true}
+              placeholder="Escribe un nombre"
+              onChange={(e) => setFilterName(e.target.value)}
+            />
+          </Box>
+          <Box mt={4}>
+            {filteredData.length === 0 && (
+              <Typography>No hay resultados</Typography>
+            )}
+            {filteredData &&
+              // @ts-ignore
+              filteredData.map((patient) => (
+                <PetCardFinder
+                  // @ts-ignore
+                  patient={patient}
+                  setPatientSelected={setPatientSelected}
+                />
+              ))}
+          </Box>
+        </>
+      )}
     </Box>
   );
 };

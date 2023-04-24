@@ -1,21 +1,54 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import { DialogContent } from "@/styles";
+import Modal from "@mui/material/Modal";
 import Input from "@/components/Input";
 import { Field } from "@/styles";
 import LoadingButton from "@mui/lab/LoadingButton";
+import ModalForm from "@/components/ModalForm";
+
+const ContentTitle = styled(Box)`
+  padding: 0 35px 16px;
+  border-bottom: 1px solid #d1d1d1;
+`;
+
+const Title = styled(Typography)`
+  margin: 0;
+  font-size: 20px;
+`;
 
 const Content = styled(Box)`
-  padding: 20px;
+  margin-top: 20px;
+  padding: 0 35px;
 `;
+
+const Footer = styled(Box)`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+`;
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 500,
+  bgcolor: "background.paper",
+  borderRadius: "6px",
+  boxShadow: 24,
+  paddingTop: 2,
+  paddingBottom: 3,
+};
 
 const Index = () => {
   const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const {
     register,
@@ -31,59 +64,7 @@ const Index = () => {
 
   return (
     <Box>
-      <Button onClick={() => setOpen(true)} size="small">
-        + Agregar meta
-      </Button>
-      <Dialog
-        onClose={() => setOpen(false)}
-        open={open}
-        fullWidth={true}
-        maxWidth="sm"
-      >
-        <DialogContent>
-          <DialogTitle sx={{ fontFamily: "Poppins" }}>Agregar meta</DialogTitle>
-          <Box>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Box sx={{ padding: "0 20px" }}>
-                <Field>
-                  <label>Titulo</label>
-                  <Input
-                    type="text"
-                    register={register}
-                    errors={errors}
-                    keyName="goal_name"
-                    placeholder="Titulo de la meta"
-                  />
-                </Field>
-                <Field>
-                  <label>Descripción</label>
-                  <Input
-                    type="text"
-                    register={register}
-                    errors={errors}
-                    keyName="goal_details"
-                    placeholder="Escribe los detalles"
-                  />
-                </Field>
-                <LoadingButton
-                  sx={{
-                    marginTop: "10px",
-                    marginBottom: "25px",
-                    color: "#fff",
-                  }}
-                  size="medium"
-                  color="primary"
-                  type="submit"
-                  loading={loading}
-                  variant="contained"
-                >
-                  <span>Agregar meta</span>
-                </LoadingButton>
-              </Box>
-            </form>
-          </Box>
-        </DialogContent>
-      </Dialog>
+      <ModalForm what="meta" keyName="goal" submit={onSubmit} />
     </Box>
   );
 };

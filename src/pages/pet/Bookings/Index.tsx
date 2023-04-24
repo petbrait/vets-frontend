@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import BookingCard from "./BookingCard";
+import Stack from "@mui/material/Stack";
+import AddBooking from "./AddBooking";
 
 const HeaderInfo = styled(Box)`
   display: grid;
@@ -24,6 +26,11 @@ const Table = styled(Box)`
   margin-top: 0px;
 `;
 
+const Title = styled(Typography)`
+  font-size: 18px !important;
+  font-weight: 500 !important;
+`;
+
 const Index = () => {
   const data = [
     {
@@ -38,9 +45,17 @@ const Index = () => {
 
   return (
     <Box>
-      <Box>
-        <Button>+ Reservar una sesión</Button>
-      </Box>
+      <Stack
+        direction="row"
+        spacing={1}
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Title>2 Sessiones</Title>
+        <Box>
+          <AddBooking type="booking">+ Reservar una sesión </AddBooking>
+        </Box>
+      </Stack>
       <Box mt={2}>
         <Table>
           <HeaderInfo>

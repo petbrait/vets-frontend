@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Box from "@mui/material/Box";
 import CardCalendar from "./CardCalendar";
 import Typography from "@mui/material/Typography";
+import { UseAppoiments } from "@/core/api";
+import { type Appoiment } from "@/types";
 
 const Date = styled(Typography)`
   font-size: 23px !important;
@@ -13,6 +15,16 @@ const Appoinments = styled(Typography)`
 `;
 
 const Index = () => {
+  const {
+    appoiments,
+    isLoading,
+    isError,
+  }: {
+    appoiments: Array<Appoiment>;
+    isLoading: boolean;
+    isError: boolean;
+  } = UseAppoiments();
+
   return (
     <Box>
       <Box mt={5} mb={5} ml={3} mr={3}>
@@ -20,9 +32,14 @@ const Index = () => {
         <Appoinments>Tienes 3 citas para el día de hoy</Appoinments>
       </Box>
       <Box>
-        {[1, 2, 3].map(() => (
-          <CardCalendar />
-        ))}
+        {isLoading ? (
+          <p>Cargando...</p>
+        ) : (
+          <Box>
+            {appoiments &&
+              appoiments.map((appoiment) => <CardCalendar {...appoiment} />)}
+          </Box>
+        )}
       </Box>
     </Box>
   );

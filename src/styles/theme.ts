@@ -2,7 +2,7 @@ import type { ThemeOptions } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import localFont from "@next/font/local";
 
-import { colors } from "../constants/colors";
+import { COLORS } from "../constants/colors";
 
 const Poppins = localFont({
   src: "../assets/fonts/Poppins-Regular.otf",
@@ -67,44 +67,44 @@ export const themeOptions: ThemeOptions = {
   },
   palette: {
     primary: {
-      main: colors.brightBlue,
+      main: COLORS.brightBlue,
     },
     secondary: {
-      main: colors.folly,
+      main: COLORS.folly,
     },
     background: {
-      default: colors.silver,
-      paper: colors.white,
+      default: COLORS.silver,
+      paper: COLORS.white,
     },
     error: {
-      main: colors.reddish,
+      main: COLORS.reddish,
     },
     common: {
-      brightBlue: colors.brightBlue,
-      lavender: colors.lavender,
-      limeGreen: colors.limeGreen,
-      navy: colors.navy,
-      magenta: colors.magenta,
-      slate: colors.slate,
-      mistyDay: colors.mistyDay,
-      white: colors.white,
-      black: colors.black,
-      dawn: colors.dawn,
-      smoke: colors.smoke,
-      folly: colors.folly,
-      silver: colors.silver,
-      reddish: colors.reddish,
-      darkViolet: colors.darkViolet,
-      blue: colors.blue,
+      brightBlue: COLORS.brightBlue,
+      lavender: COLORS.lavender,
+      limeGreen: COLORS.limeGreen,
+      navy: COLORS.navy,
+      magenta: COLORS.magenta,
+      slate: COLORS.slate,
+      mistyDay: COLORS.mistyDay,
+      white: COLORS.white,
+      black: COLORS.black,
+      dawn: COLORS.dawn,
+      smoke: COLORS.smoke,
+      folly: COLORS.folly,
+      silver: COLORS.silver,
+      reddish: COLORS.reddish,
+      darkViolet: COLORS.darkViolet,
+      blue: COLORS.blue,
     },
     text: {
-      secondary: colors.blue,
-      primary: colors.blue,
+      secondary: COLORS.blue,
+      primary: COLORS.blue,
     },
     action: {
       disabledOpacity: 0.7,
-      disabledBackground: colors.lavender,
-      disabled: colors.white,
+      disabledBackground: COLORS.lavender,
+      disabled: COLORS.white,
     },
   },
   typography: {
@@ -116,7 +116,7 @@ export const themeOptions: ThemeOptions = {
     caption: {
       // @ts-ignore
       fontFamily: Poppins,
-      color: colors.darkViolet,
+      color: COLORS.darkViolet,
     },
     h1: {
       // @ts-ignore
@@ -127,19 +127,19 @@ export const themeOptions: ThemeOptions = {
       // @ts-ignore
       fontFamily: Poppins,
       fontWeight: 400,
-      color: colors.black,
+      color: COLORS.black,
     },
     h3: {
       // @ts-ignore
       fontFamily: Poppins,
       fontWeight: 400,
-      color: colors.black,
+      color: COLORS.black,
     },
     h4: {
       // @ts-ignore
       fontFamily: Poppins,
       fontWeight: 500,
-      color: colors.black,
+      color: COLORS.black,
     },
     // @ts-ignore
     body3: {
@@ -149,7 +149,7 @@ export const themeOptions: ThemeOptions = {
       lineHeight: "18px",
     },
     strong: {
-      color: colors.darkViolet,
+      color: COLORS.darkViolet,
       fontFamily: Poppins,
       fontSize: 14,
       lineHeight: "16px",
@@ -157,7 +157,7 @@ export const themeOptions: ThemeOptions = {
     button: {
       // @ts-ignore
       fontFamily: Poppins,
-      color: colors.white,
+      color: COLORS.white,
       textTransform: "none",
       fontStyle: "normal",
       fontWeight: 400,

@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { AppConfig } from "@/utils/AppConfig";
+import { ENDPOINTS } from "@/constants/points";
 
 // @ts-ignore
 const fetcher = (...args) =>
@@ -9,10 +9,8 @@ const fetcher = (...args) =>
     throw Error("An error has occurred.");
   });
 
-const PATIENTS_URL = `${AppConfig.apiUrl}/get_patients`;
-
 export function UsePatients() {
-  const { data, error, isLoading } = useSWR(PATIENTS_URL, fetcher, {
+  const { data, error, isLoading } = useSWR(ENDPOINTS.PATIENTS_URL, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
@@ -20,6 +18,48 @@ export function UsePatients() {
 
   return {
     patients: data,
+    isLoading,
+    isError: error,
+  };
+}
+
+export function UseAppoiments() {
+  const { data, error, isLoading } = useSWR(ENDPOINTS.APPOIMENTS_URL, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
+
+  return {
+    appoiments: data,
+    isLoading,
+    isError: error,
+  };
+}
+
+export function UseNotes() {
+  const { data, error, isLoading } = useSWR(ENDPOINTS.NOTES_URL, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
+
+  return {
+    notes: data,
+    isLoading,
+    isError: error,
+  };
+}
+
+export function UseGoals() {
+  const { data, error, isLoading } = useSWR(ENDPOINTS.GOALS_URL, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
+
+  return {
+    goals: data,
     isLoading,
     isError: error,
   };

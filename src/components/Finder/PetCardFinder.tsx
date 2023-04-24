@@ -30,11 +30,12 @@ const Card = styled(Box)`
 
 interface props {
   patient: Patient;
+  setPatientSelected: any;
 }
 
-const Index = ({ patient }: props) => {
+const Index = ({ patient, setPatientSelected }: props) => {
   return (
-    <Card>
+    <Card onClick={() => setPatientSelected(patient)}>
       <Stack direction="row" spacing={2} alignItems="center">
         <Avatar
           alt="ncieone"

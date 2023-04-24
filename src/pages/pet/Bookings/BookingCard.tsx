@@ -5,6 +5,7 @@ import Image from "next/image";
 import IconCamera from "@/assets/icons/video.svg";
 import IconCalendar from "@/assets/icons/calendar.svg";
 import IconCheck from "@/assets/icons/check.svg";
+import AddBooking from "./AddBooking";
 
 const Card = styled.div`
   display: grid;
@@ -70,14 +71,16 @@ const BookingCard = ({ session, date }: bookingCardProps) => {
         <Link href="/home">Start session</Link>
       </div>
       <div>
-        <Image
-          width={14}
-          height={14}
-          priority
-          src={IconCalendar}
-          alt="icon-calendar"
-        />
-        <p>Reschedule</p>
+        <AddBooking type="reschedule">
+          <Image
+            width={14}
+            height={14}
+            priority
+            src={IconCalendar}
+            alt="icon-calendar"
+          />
+          <p>Reschedule</p>
+        </AddBooking>
       </div>
       <div>
         <Image
@@ -88,7 +91,6 @@ const BookingCard = ({ session, date }: bookingCardProps) => {
           alt="icon-check"
         />
         <span>Confirmed</span>
-        {/* <OptionsIcon src={IconOptions} alt="share" /> */}
       </div>
     </Card>
   );

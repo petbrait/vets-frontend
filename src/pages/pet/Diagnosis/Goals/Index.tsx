@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Skeleton from "@mui/material/Skeleton";
 import GoalCard from "./GoalCard";
 import AddGoal from "./AddGoal";
-import { colors } from "@/constants/colors";
+import { COLORS } from "@/constants/colors";
+import { UseGoals } from "@/core/api";
+import { type Goal } from "@/types";
 
 const Title = styled(Typography)`
   font-size: 18px !important;
@@ -28,24 +30,33 @@ const Filter = styled(Typography)<filterProps>`
   font-size: 12px !important;
   cursor: pointer;
   background-color: ${({ active }) =>
-    active ? `${colors.brightBlue}` : "#fff"};
+    active ? `${COLORS.brightBlue}` : "#fff"};
   padding: 5px 10px;
   color: ${({ active }) => (active ? "#fff" : "#000")};
   border-radius: 50px;
 `;
 
 const Index = () => {
+  const {
+    goals,
+    isLoading,
+    isError,
+  }: { goals: Array<Goal>; isLoading: boolean; isError: boolean } = UseGoals();
+
   return (
     <div>
       <Box>
-        <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item xs={10.3}>
-            <Title>7 Metas</Title>
-          </Grid>
-          <Grid item xs={1.7}>
+        <Stack
+          direction="row"
+          spacing={1}
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Title>7 Metas</Title>
+          <Box>
             <AddGoal />
-          </Grid>
-        </Grid>
+          </Box>
+        </Stack>
         <Filters>
           <Stack direction="row" spacing={2} alignItems="center">
             <Filter active={true}>Activas</Filter>
@@ -54,9 +65,24 @@ const Index = () => {
           </Stack>
         </Filters>
         <Box mt={3}>
-          {[1, 2, 3].map(() => (
-            <GoalCard />
-          ))}
+          {isLoading ? (
+            <Box>
+              <Skeleton
+                variant="rectangular"
+                width="100%"
+                height={118}
+                style={{ borderRadius: "7px", marginBottom: 10 }}
+              />
+              <Skeleton
+                variant="rectangular"
+                width="100%"
+                height={118}
+                style={{ borderRadius: "7px" }}
+              />
+            </Box>
+          ) : (
+            <>{goals && goals.map(() => <GoalCard />)}</>
+          )}
         </Box>
       </Box>
     </div>

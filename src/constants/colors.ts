@@ -1,6 +1,6 @@
 import type { CommonColors } from "@mui/material";
 
-export const colors: CommonColors = {
+export const COLORS: CommonColors = Object.freeze({
   brightBlue: "#4649FF",
   lavender: "#CEA9EB",
   limeGreen: "#F3FFA5",
@@ -17,4 +17,4 @@ export const colors: CommonColors = {
   reddish: "#FF4949",
   blue: "#344F64",
   darkViolet: "#161721",
-};
+});

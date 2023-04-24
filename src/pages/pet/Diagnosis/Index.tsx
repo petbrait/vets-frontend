@@ -1,63 +1,31 @@
+import styled from "styled-components";
 import Box from "@mui/material/Box";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import Stack from "@mui/material/Stack";
+import Diagnostic from "./Diagnostic";
 import Typography from "@mui/material/Typography";
-import Image from "next/image";
-import IconArrow from "@/assets/icons/chevron.svg";
-import Goals from "./Goals/Index";
+
+const Title = styled(Typography)`
+  font-size: 18px !important;
+  font-weight: 500 !important;
+`;
 
 const Index = () => {
   return (
-    <div>
-      {/* Goals */}
-      <Box>
-        {/* <Accordion>
-          <AccordionSummary
-            expandIcon={
-              <Image
-                width={16}
-                height={16}
-                priority
-                src={IconArrow}
-                alt="icon-arrow"
-              />
-            }
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-          </AccordionSummary>
-          <AccordionDetails>
-          </AccordionDetails>
-        </Accordion> */}
-        {/* <Typography>Metas</Typography> */}
-        <Goals />
+    <Box>
+      <Stack
+        direction="row"
+        spacing={1}
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Title>Diagnosticos (10)</Title>
+      </Stack>
+      <Box mt={3} mb={2}>
+        {[1, 2, 3].map(() => (
+          <Diagnostic />
+        ))}
       </Box>
-      {/* Nutrition
-      <Accordion>
-        <AccordionSummary
-          expandIcon={
-            <Image
-              width={16}
-              height={16}
-              priority
-              src={IconArrow}
-              alt="icon-arrow"
-            />
-          }
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography>Nutricion</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion> */}
-    </div>
+    </Box>
   );
 };
 

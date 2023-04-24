@@ -50,11 +50,10 @@ const Index = () => {
   const filteredData = useFinder(filterName, patients);
 
   return (
-    <Box mt={5}>
-      <Title>Mascotas</Title>
+    <Box mt={1}>
+      <Title>Mascotas 🐶</Title>
       <Box mt={3} mb={3}>
         <Input
-          variant="outlined"
           sx={{
             fontFamily: "Poppins",
             backgroundColor: "#fff",
