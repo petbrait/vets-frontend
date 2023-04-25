@@ -29,3 +29,35 @@ export const Race = styled(Typography)`
   color: #727f88;
   font-size: 11px !important;
 `;
+
+// Modal
+export const ModalContent = styled(Box)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  padding-top: 16px;
+  padding-bottom: 24px;
+`;
+
+export const ContentTitle = styled(Box)`
+  padding: 0 35px 16px;
+  border-bottom: 1px solid #d1d1d1;
+`;
+
+export const ModalTitle = styled(Typography)`
+  margin: 0;
+  font-size: 20px !important;
+  font-weight: 500;
+`;
+
+export const ModalFooter = styled(Box)`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+`;

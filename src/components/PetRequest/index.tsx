@@ -14,15 +14,22 @@ const Index = () => {
   return (
     <Box mt={1}>
       <Title>Solicitudes 👏🏻</Title>
-      <Box mt={3}>
-        <Grid container spacing={2}>
-          {[1, 2, 3, 4].map(() => (
-            <Grid item xs={4}>
-              <RequestCard />
-            </Grid>
-          ))}
+      <Grid container spacing={2}>
+        <Grid item xs={3}>
+          <Filters />
         </Grid>
-      </Box>
+        <Grid item xs={9}>
+          <Box mt={3}>
+            <Grid container spacing={2}>
+              {[1, 2, 3, 4].map(() => (
+                <Grid item xs={4}>
+                  <RequestCard />
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

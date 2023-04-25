@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import { DialogContent } from "@/styles";
 import Calendar from "@/components/Calendar";
+import Modal from "@mui/material/Modal";
+import { ModalContent, ContentTitle, ModalTitle } from "@/styles";
+import { PROPS } from "@/constants/props";
 
 interface addBookingProps {
   type: string;
@@ -13,27 +13,31 @@ interface addBookingProps {
 
 const Index = ({ type, children }: addBookingProps) => {
   const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Box>
-      <Button onClick={() => setOpen(true)} size="small">
+      <Button onClick={handleOpen} size="small">
         {children}
       </Button>
-      <Dialog
-        onClose={() => setOpen(false)}
+      <Modal
         open={open}
-        fullWidth={true}
-        maxWidth="sm"
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        <DialogContent>
-          <DialogTitle sx={{ fontFamily: "Poppins" }}>
-            {type === "booking" ? "Reservar" : "Reagendar"}
-          </DialogTitle>
+        <ModalContent>
+          <ContentTitle>
+            <ModalTitle>
+              {type === PROPS.BOOKING ? "Agendar" : "Reagendar"} cita
+            </ModalTitle>
+          </ContentTitle>
           <Box>
-            <Calendar type={type} />
+            <Calendar type={type} handleClose={handleClose} />
           </Box>
-        </DialogContent>
-      </Dialog>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };

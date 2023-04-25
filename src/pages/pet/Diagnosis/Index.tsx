@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Diagnostic from "./Diagnostic";
 import Typography from "@mui/material/Typography";
+import AddDiagnostic from "./AddDiagnostic";
 
 const Title = styled(Typography)`
   font-size: 18px !important;
@@ -18,7 +19,12 @@ const Index = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Title>Diagnosticos (3)</Title>
+        <Box>
+          <Title>Diagnosticos (3)</Title>
+        </Box>
+        <Box>
+          <AddDiagnostic />
+        </Box>
       </Stack>
       <Box mt={3} mb={2}>
         {[1, 2, 3].map(() => (

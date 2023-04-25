@@ -7,6 +7,7 @@ import Image from "next/image";
 import IconUser from "@/assets/icons/user.svg";
 import IconPet from "@/assets/icons/pet.png";
 import IconButton from "@mui/material/IconButton";
+import { INFO_TAB } from "@/constants/tabs";
 
 import OwnerInfo from "./OwnerInfo";
 import PetInfo from "./PetInfo";
@@ -18,14 +19,19 @@ const Wrapper = styled(Box)`
 `;
 
 const Index = () => {
-  const [tab, setTab] = useState<number>(1);
+  const [tab, setTab] = useState<string>(INFO_TAB.OWNER_INFO);
 
   return (
     <Wrapper>
       <Box mb={2}>
         <Stack direction="row" spacing={1} alignItems="center">
           <Tooltip placement="top-start" title="Información del dueño">
-            <IconButton onClick={() => setTab(1)}>
+            <IconButton
+              onClick={() => setTab(INFO_TAB.OWNER_INFO)}
+              sx={
+                tab === INFO_TAB.OWNER_INFO && { backgroundColor: "#4649ff30" }
+              }
+            >
               <Image
                 width={20}
                 height={20}
@@ -36,7 +42,10 @@ const Index = () => {
             </IconButton>
           </Tooltip>
           <Tooltip placement="top-start" title="Información de la mascota">
-            <IconButton onClick={() => setTab(2)}>
+            <IconButton
+              onClick={() => setTab(INFO_TAB.PET_INFO)}
+              sx={tab === INFO_TAB.PET_INFO && { backgroundColor: "#4649ff30" }}
+            >
               <Image
                 width={20}
                 height={20}
@@ -49,8 +58,8 @@ const Index = () => {
         </Stack>
       </Box>
       <Box>
-        {tab === 1 && <OwnerInfo />}
-        {tab === 2 && <PetInfo />}
+        {tab === INFO_TAB.OWNER_INFO && <OwnerInfo />}
+        {tab === INFO_TAB.PET_INFO && <PetInfo />}
       </Box>
     </Wrapper>
   );

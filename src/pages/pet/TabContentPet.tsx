@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Diagnosis from "./Diagnosis/index";
+import Diagnosis from "./Diagnosis";
 import Files from "./Files";
 import Vaccines from "./Vaccines";
 import Bookings from "./Bookings/Index";
@@ -15,7 +15,7 @@ const WrapperTab = styled(Box)`
 `;
 
 const ContentTab = styled(Box)`
-  max-height: calc(100vh - 253px);
+  max-height: calc(100vh - 200px);
   overflow: scroll;
   margin-top: 20px;
   background-color: #fff;

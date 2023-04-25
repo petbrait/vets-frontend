@@ -6,6 +6,7 @@ import IconCamera from "@/assets/icons/video.svg";
 import IconCalendar from "@/assets/icons/calendar.svg";
 import IconCheck from "@/assets/icons/check.svg";
 import AddBooking from "./AddBooking";
+import { PROPS } from "@/constants/props";
 
 const Card = styled.div`
   display: grid;
@@ -68,10 +69,10 @@ const BookingCard = ({ session, date }: bookingCardProps) => {
           src={IconCamera}
           alt="icon-camera"
         />
-        <Link href="/home">Start session</Link>
+        <Link href="/home">Comenzar sesión</Link>
       </div>
       <div>
-        <AddBooking type="reschedule">
+        <AddBooking type={PROPS.RESCHEDULE}>
           <Image
             width={14}
             height={14}
@@ -79,7 +80,7 @@ const BookingCard = ({ session, date }: bookingCardProps) => {
             src={IconCalendar}
             alt="icon-calendar"
           />
-          <p>Reschedule</p>
+          <p>Reagendar</p>
         </AddBooking>
       </div>
       <div>
@@ -90,7 +91,7 @@ const BookingCard = ({ session, date }: bookingCardProps) => {
           src={IconCheck}
           alt="icon-check"
         />
-        <span>Confirmed</span>
+        <span>Confirmada</span>
       </div>
     </Card>
   );

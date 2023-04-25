@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import BookingCard from "./BookingCard";
 import Stack from "@mui/material/Stack";
 import AddBooking from "./AddBooking";
+import { PROPS } from "@/constants/props";
 
 const HeaderInfo = styled(Box)`
   display: grid;
@@ -53,7 +54,7 @@ const Index = () => {
       >
         <Title>2 Sesiones</Title>
         <Box>
-          <AddBooking type="booking">+ Reservar una sesión </AddBooking>
+          <AddBooking type={PROPS.BOOKING}>+ Agendar una cita </AddBooking>
         </Box>
       </Stack>
       <Box mt={2}>
