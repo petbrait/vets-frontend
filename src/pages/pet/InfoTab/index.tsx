@@ -18,6 +18,20 @@ const Wrapper = styled(Box)`
   padding: 25px;
 `;
 
+interface IconButtonProps {
+  tab: string;
+}
+
+const IconButtonOwner = styled(IconButton)<IconButtonProps>`
+  background-color: ${({ tab }) =>
+    tab === INFO_TAB.OWNER_INFO && "#4649ff30"} !important;
+`;
+
+const IconButtonPet = styled(IconButton)<IconButtonProps>`
+  background-color: ${({ tab }) =>
+    tab === INFO_TAB.PET_INFO && "#4649ff30"} !important;
+`;
+
 const Index = () => {
   const [tab, setTab] = useState<string>(INFO_TAB.OWNER_INFO);
 
@@ -26,11 +40,9 @@ const Index = () => {
       <Box mb={2}>
         <Stack direction="row" spacing={1} alignItems="center">
           <Tooltip placement="top-start" title="Información del dueño">
-            <IconButton
+            <IconButtonOwner
+              tab={tab}
               onClick={() => setTab(INFO_TAB.OWNER_INFO)}
-              sx={
-                tab === INFO_TAB.OWNER_INFO && { backgroundColor: "#4649ff30" }
-              }
             >
               <Image
                 width={20}
@@ -39,13 +51,10 @@ const Index = () => {
                 src={IconUser}
                 alt="icon-user"
               />
-            </IconButton>
+            </IconButtonOwner>
           </Tooltip>
           <Tooltip placement="top-start" title="Información de la mascota">
-            <IconButton
-              onClick={() => setTab(INFO_TAB.PET_INFO)}
-              sx={tab === INFO_TAB.PET_INFO && { backgroundColor: "#4649ff30" }}
-            >
+            <IconButtonPet tab={tab} onClick={() => setTab(INFO_TAB.PET_INFO)}>
               <Image
                 width={20}
                 height={20}
@@ -53,7 +62,7 @@ const Index = () => {
                 src={IconPet}
                 alt="icon-pet"
               />
-            </IconButton>
+            </IconButtonPet>
           </Tooltip>
         </Stack>
       </Box>
