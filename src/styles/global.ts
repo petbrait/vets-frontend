@@ -84,7 +84,7 @@ export default createGlobalStyle`
 .react-calendar__navigation__label__labelText {
   font-family: Poppins, sans-serif;
   font-weight: 600;
-  font-size: 22px !important;
+  font-size: 18px !important;
   margin: 0;
   @media screen and (max-width: 767px) {
     padding-left: 18px !important;

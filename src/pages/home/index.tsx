@@ -9,7 +9,9 @@ import DayNotifications from "@/components/DayNotifications";
 const Wrapper = styled(Box)`
   background-color: #f7f6fe;
   height: calc(100vh - 80px);
+  max-height: 100vh;
   padding: 40px;
+  overflow: scroll;
 `;
 
 const Index = () => {

@@ -52,9 +52,9 @@ const Index = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Title>2 Sesiones</Title>
+        <Title>2 Citas</Title>
         <Box>
-          <AddBooking type={PROPS.BOOKING}>+ Agendar una cita </AddBooking>
+          <AddBooking type={PROPS.BOOKING}>+ Agendar una cita</AddBooking>
         </Box>
       </Stack>
       <Box mt={2}>

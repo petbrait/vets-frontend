@@ -26,11 +26,15 @@ const Footer = styled(Box)`
 
 const BadgeAvailable = styled.span`
   position: relative;
-  width: 18px;
+  width: 20px;
   height: 15px;
   border-radius: 10px;
   background-color: #f7f6fe;
   border: 1px solid #4649ff;
+`;
+
+const BadgeAvailableText = styled(Typography)`
+  font-size: 12px !important;
 `;
 
 interface calendarProps {
@@ -49,10 +53,10 @@ const Index = ({ type, handleClose }: calendarProps) => {
 
   return (
     <Wrapper>
-      <Question>
+      <Question mt={4}>
         ¿La cita quieres que sea presencial o en linea (Video llamada)?
       </Question>
-      <Box>
+      <Box mt={2}>
         <Grid container alignItems="center" spacing={2}>
           <Grid item xs={7}>
             <Legend>Selecciona una fecha y horario disponible</Legend>
@@ -65,10 +69,10 @@ const Index = ({ type, handleClose }: calendarProps) => {
               alignItems="center"
             >
               <BadgeAvailable />
-              <Legend>
+              <BadgeAvailableText>
                 los círculos de color morado claro representan días con citas
                 disponibles
-              </Legend>
+              </BadgeAvailableText>
             </Stack>
           </Grid>
           <Grid item xs={5}></Grid>

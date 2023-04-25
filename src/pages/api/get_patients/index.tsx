@@ -20,6 +20,22 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
           owner_phone: "5540034243",
           total_sessions: 6,
         },
+        {
+          id: 665512,
+          name: "Chikitin",
+          race: "Buldon Frances",
+          owner_name: "Kelly Arellano",
+          owner_phone: "5540034243",
+          total_sessions: 2,
+        },
+        {
+          id: 128790,
+          name: "Estrella",
+          race: "Buldog",
+          owner_name: "Jair Uriel Mejia Lovera",
+          owner_phone: "5540034243",
+          total_sessions: 12,
+        },
       ]);
     }, 2000);
 

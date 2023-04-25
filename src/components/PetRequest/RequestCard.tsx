@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import { PetName, Race } from "@/styles";
 
 const Card = styled(Box)`
-  background-color: #fff;
+  background-color: #f4f4f4;
   padding: 15px;
+  border-radius: 6px;
   cursor: pointer;
   & button {
     display: none;

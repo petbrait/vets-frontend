@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import LoadingButton from "@mui/lab/LoadingButton";
+import Dropzone from "@/components/Dropzone";
 
 const ContentTitle = styled(Box)`
   padding: 0 35px 16px;
@@ -79,6 +80,7 @@ const Index = () => {
             <Content>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <Box>
+                  <Dropzone />
                   <Footer>
                     <Box>
                       <Stack direction="row" spacing={2} alignItems="center">

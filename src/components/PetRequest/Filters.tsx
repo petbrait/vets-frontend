@@ -1,12 +1,14 @@
 import styled from "styled-components";
-import Box from "@mui/material/Box";
-
-const Wrapper = styled(Box)`
-  margin-top: 50px;
-`;
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
 const Index = () => {
-  return <h1>Hi ✋</h1>;
+  return (
+    <Stack direction="column" spacing={2}>
+      <Button>Pendientes</Button>
+      <Button>Confirmadas</Button>
+    </Stack>
+  );
 };
 
 export default Index;

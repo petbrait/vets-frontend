@@ -39,7 +39,7 @@ const Index = () => {
   const [renderTab, setRenderTab] = useState(1);
 
   return (
-    <Box mt={5}>
+    <Box mt={3}>
       <List>
         <Item
           onClick={() => setRenderTab(1)}
@@ -60,9 +60,16 @@ const Index = () => {
           Calendario
         </Item> */}
       </List>
-      <hr />
-      {renderTab === 1 && <Patients />}
-      {renderTab === 2 && <PetRequest />}
+      <Box
+        sx={{
+          backgroundColor: "#ffffff",
+          borderRadius: "12px",
+          padding: "20px",
+        }}
+      >
+        {renderTab === 1 && <Patients />}
+        {renderTab === 2 && <PetRequest />}
+      </Box>
       {/* {renderTab === 3 && <Calendar />} */}
     </Box>
   );

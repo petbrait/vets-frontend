@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import IconCamera from "@/assets/icons/video.svg";
-import IconCalendar from "@/assets/icons/calendar.svg";
+import IconCalendar from "@/assets/icons/calendar-purple.svg";
 import IconCheck from "@/assets/icons/check.svg";
 import AddBooking from "./AddBooking";
 import { PROPS } from "@/constants/props";

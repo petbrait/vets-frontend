@@ -5,13 +5,18 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
 import { PetName, Race } from "@/styles";
-import ButtonBookAppoinment from "@/components/ButtonBookAppoinment";
 import { type Patient } from "@/types";
+import AddBooking from "@/pages/pet/Bookings/AddBooking";
+import { PROPS } from "@/constants/props";
 
 const Card = styled(Box)`
   background-color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   padding: 15px 10px 15px 30px;
+  border-radius: 6px;
+  &:hover {
+    background-color: #f4f4f4;
+  }
   & div {
     & img {
       width: 44px;
@@ -89,7 +94,7 @@ const Index = ({
           <Item>{total_sessions}</Item>
         </div>
         <div>
-          <ButtonBookAppoinment />
+          <AddBooking type={PROPS.BOOKING}>+ Agendar cita </AddBooking>
         </div>
       </Content>
     </Card>
