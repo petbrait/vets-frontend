@@ -13,7 +13,6 @@ import InfoTab from "./InfoTab";
 
 const Wrapper = styled(Box)`
   background-color: #f7f6fe;
-  /* height: calc(100vh - 80px); */
   padding: 40px;
 `;
 
